@@ -205,14 +205,18 @@
         opacity: 0;
       }
     }
-
+    .random-bg {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   </style>
 </head>
 
-<body>
+<body class="random-bg"> <!-- Add the "random-bg" class to the body element -->
   <div class="author">
-    <a href="https://github.com/c3cbot/c3c-fbstate/" target="_blank" class="author"><img src="./logo/128.png" alt="logo"
-        width="20px" height="20px"></a>
+    <a href="https://github.com/c3cbot/c3c-fbstate/" target="_blank" class="author"><img src="./logo/128.png"
+        alt="logo" width="20px" height="20px"></a>
     <a href="https://github.com/c3cbot/c3c-fbstate/" target="_blank" class="author">Github Author</a>
   </div>
 
@@ -244,6 +248,23 @@
 
   <div id="snackbar"></div>
 
-</body>
+  <script>
+    // Function to set a random background image
+    function setRandomBackground() {
+      // Array of background image filenames in the "background" folder
+      const backgroundImages = [
+        'background/1.jpg',
+        'background/2.jpg',
+        'background/3.jpg',
+        // Add more image filenames as needed
+      ];
 
-</html>
+      // Generate a random index to select a random image
+      const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+      const randomImageUrl = backgroundImages[randomIndex];
+      document.body.style.backgroundImage = `url(${randomImageUrl})`;
+    }
+
+    // Call the function to set a random background when the page loads
+    window.onload = function () {
+      setRandomBackground();
